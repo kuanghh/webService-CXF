@@ -14,6 +14,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-distribution-manifest -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-distribution-manifest</artifactId>
+      <version>3.1.9</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>webService-CXF</finalName>
