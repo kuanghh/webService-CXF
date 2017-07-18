@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:cxf="http://cxf.apache.org/core"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+				            http://www.springframework.org/schema/beans/spring-beans.xsd
+				            http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+				            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+				            http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
+
+
+    <!-- <jaxws:server发布SOAP协议的服务 ，对JaxWsServerFactoryBean类封装-->
+    <jaxws:server address="/weather" serviceClass="com.khh._cxf.demo2.server.WeatherInterface">
+        <!-- 配置服务实现类 -->
+        <jaxws:serviceBean>
+            <bean name="weatherInterface" class="com.khh._cxf.demo2.server.WeatherInterfaceImpl" />
+        </jaxws:serviceBean>
+
+
+        <jaxws:inInterceptors>
+            <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"/>
+        </jaxws:inInterceptors>
+        <jaxws:outInterceptors>
+            <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"/>
+        </jaxws:outInterceptors>
+
+    </jaxws:server>
+
+    <!-- 使用jaxws:endpoint发布服务 -->
+    <jaxws:endpoint address="/hello" implementor="com.khh._cxf.demo2.server.HelloWorld" />
+
+
+</beans>
