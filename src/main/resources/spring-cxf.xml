@@ -30,4 +30,11 @@
     <jaxws:endpoint address="/hello" implementor="com.khh._cxf.demo2.server.HelloWorld" />
 
 
+    <!-- <jaxws:client实现客户端 ，对JaxWsProxyFactoryBean类封装-->
+    <jaxws:client id="weatherInterface"
+                  address="http://localhost:8080/webService-CXF/ws/weather"
+                  serviceClass="com.khh._cxf.demo2.client.WeatherInterface" />
+
+
+
 </beans>
